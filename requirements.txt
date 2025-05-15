@@ -1,0 +1,10 @@
+scikit-learn
+fastapi 
+python-multipart
+uvicorn
+python-dotenv
+pymongo
+orjson==3.10.15
+httpx
+python-keycloak
+pydantic-settings

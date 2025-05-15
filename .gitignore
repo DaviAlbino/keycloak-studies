@@ -1,0 +1,22 @@
+models/
+datasets/
+images/
+results/
+trained-detect-field/
+trained-detect-players/
+videos/
+*.pt
+.env
+# services/__pycache__/
+__pycache__/
+# clustering/__pycache__/
+# tools/__pycache__/
+
+*.pkl
+*.pickle
+*.pyc
+**/__pycache__/
+.DS_Store
+dump.rdb
+temp-*
+logs/
