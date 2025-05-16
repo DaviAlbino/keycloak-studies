@@ -8,13 +8,7 @@ bearer_scheme = HTTPBearer()
 class AuthController:
     @staticmethod
     def read_root():
-        return {
-            "message": (
-                "Welcome to the Keycloak authentication system. "
-                "Use the /login endpoint to authenticate and /protected to access the protected resource."
-            ),
-            "documentation": "/docs",
-        }
+        return AuthService.get_read_root()
 
     @staticmethod
     def login(username: str = Form(...), password: str = Form(...)) -> TokenResponse:

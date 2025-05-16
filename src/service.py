@@ -1,9 +1,15 @@
 from fastapi import HTTPException, status
 from keycloak.exceptions import KeycloakAuthenticationError
-from src.config import keycloak_openid
+from src.config import keycloak_openid, get_openid_config
 from src.models import UserInfo
 
 class AuthService:
+    @staticmethod
+    def get_read_root():
+        well_known = get_openid_config()
+        return well_known
+
+
     @staticmethod
     def authenticate_user(username: str, password: str) -> str:
         try:
