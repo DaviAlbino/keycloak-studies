@@ -7,12 +7,14 @@ app = FastAPI()
 
 bearer_scheme = HTTPBearer()
 
-app.get("/")
+@app.get("/")
 async def read_root():
+    print('dentro')
     return AuthController.read_root()
 
 @app.post("/login", response_model=TokenResponse)
 async def login(username: str = Form(...), password: str = Form(...)):
+    print('tenta login')
     return AuthController.login(username, password)
 
 @app.get("/protected", response_class=UserInfo)
