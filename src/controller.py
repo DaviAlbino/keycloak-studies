@@ -29,8 +29,7 @@ class AuthController:
     
 
     @staticmethod
-    def protected_endpoint(
-        credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme))-> UserInfo:
+    def protected_endpoint(credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme))-> UserInfo:
         token = credentials.credentials
         user_info = AuthService.verify_token(token)
 
@@ -41,4 +40,5 @@ class AuthController:
                 headers={"WW-Authenticate": "Bearer"}
             )
         
+        print(f'chegou aqui - {user_info}')
         return user_info

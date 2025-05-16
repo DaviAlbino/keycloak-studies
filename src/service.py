@@ -19,7 +19,7 @@ class AuthService:
     def verify_token(token: str) -> UserInfo:
         try:
             user_info = keycloak_openid.userinfo(token)
-            print(user_info)
+            # print(user_info)
             if not user_info:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED, detail="Token inválido."

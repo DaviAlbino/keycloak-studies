@@ -17,6 +17,6 @@ async def login(username: str = Form(...), password: str = Form(...)):
     print('tenta login')
     return AuthController.login(username, password)
 
-@app.get("/protected", response_class=UserInfo)
+@app.get("/protected", response_model=UserInfo)
 async def protected_endpoint(credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme)):
     return AuthController.protected_endpoint(credentials)
